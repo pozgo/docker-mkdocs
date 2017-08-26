@@ -1,0 +1,23 @@
+services:
+  - docker
+
+addons:
+  hosts:
+    - mkdocs
+
+before_install:
+  - docker --version
+  - docker pull alpine:latest
+
+script:
+  # Build Image
+  - docker build -t polinux/mkdocs .
+
+  #
+  # Test daemon mode (default settings)
+  #
+  - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs && sleep 10
+ 
+  # Test direct request to Nginx
+  - curl -sSLi http://mkdocs:8000  | grep '200 OK'
+ 
