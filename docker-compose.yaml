@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  mkdocs:
+    container_name: mkdocs
+    image: polinux/mkdocs:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}/mkdocs:/mkdocs
+    working_dir: /mkdocs 
