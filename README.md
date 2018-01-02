@@ -4,11 +4,14 @@
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)
 [![GitHub Forks](https://img.shields.io/github/forks/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)  
-[![Stars on Docker Hub](https://img.shields.io/docker/stars/polinux/mkdocs.svg)](https://hub.docker.com/r/polinux/mkdocs)
-[![Pulls on Docker Hub](https://img.shields.io/docker/pulls/polinux/mkdocs.svg)](https://hub.docker.com/r/polinux/mkdocs)  
 [![](https://images.microbadger.com/badges/version/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
-[![](https://images.microbadger.com/badges/license/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
 [![](https://images.microbadger.com/badges/image/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
+
+[![Docker build](http://dockeri.co/image/polinux/mkdocs)](https://hub.docker.com/r/polinux/mkdocs/)
+
+
+Felling like supporting me in my projects use donate button. Thank You!  
+[![](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/POzgo)
 
 [Docker Image](https://registry.hub.docker.com/u/polinux/mkdocs/) with [MkDocs](http://www.mkdocs.org/). It's using tiny image provided by Alpine.  
 MkDocs is a fast, simple and downright gorgeous static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
