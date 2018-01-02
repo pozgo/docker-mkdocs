@@ -15,12 +15,12 @@ jobs:
     - stage: build
       script:
         - docker build -t polinux/mkdocs:travis .
-        - docker login -u $DOCKER_USER --password-stdin $DOCKER_PASS
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
         - docker push polinux/mkdocs:travis
 
     - stage: test
       script:
-        - docker login -u $DOCKER_USER --password-stdin $DOCKER_PASS
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
         - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:travis
         - sleep 10
         - curl -sSLi http://mkdocs:8000  | grep '200 OK'
@@ -28,7 +28,7 @@ jobs:
     - name: deploy
       if: branch = master
       script:
-        - docker login -u $DOCKER_USER --password-stdin $DOCKER_PASS
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
         - docker pull polinux/mkdocs:travis
         - docker tag polinux/mkdocs:travis polinux/mkdocs:latest
         - docker tag polinux/mkdocs:travis polinux/mkdocs:$TRAVIS_TAG
