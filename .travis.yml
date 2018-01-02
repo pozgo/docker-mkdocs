@@ -14,11 +14,11 @@ jobs:
   include:
     - stage: build
       script:
-        - docker build -t polinux/mkdocs:latest .
+        - docker build -t polinux/mkdocs:travis .
 
     - stage: run
       script:
-        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs
+        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:travis
         - sleep 10
 
     - stage: test
@@ -29,6 +29,7 @@ jobs:
       if: branch = master
       script:
         - docker build -t polinux/mkdocs:$TRAVIS_TAG .
+        - docker build -t polinux/mkdocs:latest .
         - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
         - docker push polinux/mkdocs:$TRAVIS_TAG
         - docker push polinux/mkdocs:latest
