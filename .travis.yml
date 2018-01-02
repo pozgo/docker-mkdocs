@@ -12,25 +12,22 @@ before_install:
 
 jobs:
   include:
-    - stage: build
+    - stage: build&test
       script:
-        - docker build -t polinux/mkdocs:travis .
-        - docker login -u $DOCKER_USER -p $DOCKER_PASS
-        - docker push polinux/mkdocs:travis
-
-    - stage: test
-      script:
-        - docker login -u $DOCKER_USER -p $DOCKER_PASS
-        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:travis
+        - docker build -t polinux/mkdocs:staging .
+        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:staging
         - sleep 10
         - curl -sSLi http://mkdocs:8000  | grep '200 OK'
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+        - docker push polinux/mkdocs:staging
 
-    - name: deploy
+    - stage: deploy
       if: branch = master
       script:
+        - export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
         - docker login -u $DOCKER_USER -p $DOCKER_PASS
-        - docker pull polinux/mkdocs:travis
-        - docker tag polinux/mkdocs:travis polinux/mkdocs:latest
-        - docker tag polinux/mkdocs:travis polinux/mkdocs:$TRAVIS_TAG
-        - docker push polinux/mkdocs:$TRAVIS_TAG
+        - docker pull polinux/mkdocs:staging
+        - docker tag polinux/mkdocs:staging polinux/mkdocs:latest
+        - docker tag polinux/mkdocs:staging polinux/mkdocs:${RELEASE}
+        - docker push polinux/mkdocs:${RELEASE}
         - docker push polinux/mkdocs:latest
