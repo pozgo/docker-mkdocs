@@ -14,25 +14,21 @@ jobs:
   include:
     - stage: build
       script:
-        - export RELEASE=$(grep "MKDOCS_VERSION=" $TRAVIS_BUILD_DIR/Dockerfile | sed 's|^.*=||g' |awk '{print $1} | sed 's|"||g'')
-        - echo $RELEASE
-        - docker build -t polinux/mkdocs:$RELEASE
         - docker build -t polinux/mkdocs:latest .
 
     - stage: run
       script:
-        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:$RELEASE
-        - docker run -d --cap-add NET_ADMIN -p 8001:8000 --name mkdocs polinux/mkdocs && 
+        - docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs
         - sleep 10
 
     - stage: test
       script:
-        - curl -sSLi http://mkdocs:8001  | grep '200 OK'
         - curl -sSLi http://mkdocs:8000  | grep '200 OK'
 
     - name: deploy
       if: branch = master
       script:
+        - docker build -t polinux/mkdocs:$TRAVIS_TAG .
         - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-        - docker push polinux/mkdocs:$RELEASE
+        - docker push polinux/mkdocs:$TRAVIS_TAG
         - docker push polinux/mkdocs:latest
