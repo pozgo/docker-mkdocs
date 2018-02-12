@@ -4,7 +4,7 @@
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)
 [![GitHub Forks](https://img.shields.io/github/forks/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)  
-[![](https://images.microbadger.com/badges/version/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
+[![](https://img.shields.io/github/release/pozgo/docker-mkdocs.svg)](http://microbadger.com/images/pozgo/docker-mkdocs) 
 [![](https://images.microbadger.com/badges/image/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
 
 [![Docker build](http://dockeri.co/image/polinux/mkdocs)](https://hub.docker.com/r/polinux/mkdocs/)
