@@ -1,6 +1,6 @@
 ### MkDocs in a docker.
 
-[![Build Status](https://travis-ci.org/pozgo/docker-mkdocs.svg)](https://travis-ci.org/pozgo/docker-mkdocs)  
+[![Build Status](https://travis-ci.org/pozgo/docker-mkdocs.svg?branch=master)](https://travis-ci.org/pozgo/docker-mkdocs)  
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)
 [![GitHub Forks](https://img.shields.io/github/forks/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)  
