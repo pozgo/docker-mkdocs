@@ -24,10 +24,9 @@ jobs:
     - stage: deploy
       if: branch = master
       script:
-        - export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
         - docker login -u $DOCKER_USER -p $DOCKER_PASS
         - docker pull polinux/mkdocs:staging
         - docker tag polinux/mkdocs:staging polinux/mkdocs:latest
-        - docker tag polinux/mkdocs:staging polinux/mkdocs:${RELEASE}
-        - docker push polinux/mkdocs:${RELEASE}
+        - export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g'); docker tag polinux/mkdocs:staging polinux/mkdocs:${RELEASE}
+        - export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g'); docker push polinux/mkdocs:${RELEASE}
         - docker push polinux/mkdocs:latest
