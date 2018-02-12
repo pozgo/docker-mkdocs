@@ -2,6 +2,9 @@
 set -eu
 #### "Magic starts Here" - H. Potter #####
 check_install_status () {
+    if [[ ! -e /workdir/mkdocs ]]; then 
+        mkdir -p /workdir/mkdocs
+    fi
     cd /workdir/mkdocs
     if [[ ! -e "mkdocs.yml" ]]; then
     echo "No previous config. Starting fresh instalation"
@@ -15,8 +18,10 @@ start_mkdocs () {
 }
 
 get_docs () {
-    echo "Downloading documentation from Git Repository"
-    git clone ${GIT_REPO} /workdir/mkdocs
+    if [[ ! -e /workdir/mkdocs ]]; then 
+        echo "Downloading documentation from Git Repository"
+        git clone ${GIT_REPO} /workdir/mkdocs
+    fi
 }
 
 if [ ${GIT_REPO} != 'false' ]; then
