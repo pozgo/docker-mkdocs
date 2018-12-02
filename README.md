@@ -24,6 +24,7 @@ Workdir is set to `/workdir`
 |Variable|Notes|
 |:--|:--|
 |`GIT_REPO`|Remote git based repository - requires mounted keys *see examples below*|
+|`LIVE_RELOAD_SUPPORT`|Support for live reload feature. Default set to `false` - Use if auto reload needed|
 
 ### Usage
 
@@ -51,6 +52,7 @@ docker run \
     -ti \
     --name mkdocs \
     -e GIT_REPO='git@github.com:username/my-repo.git' \
+    -e LIVE_RELOAD_SUPPORT='true' \
     -v ~/.ssh:/root/.ssh:ro \
     polinux/mkdocs
 ```
