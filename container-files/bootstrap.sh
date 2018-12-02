@@ -12,9 +12,14 @@ check_install_status () {
     fi
 }
 start_mkdocs () {
+    if [[ ${LIVE_RELOAD_SUPPORT} == 'true' ]]; then
+        LRS='--no-livereload'
+    else
+        LRS=''
+    fi
     cd /workdir/mkdocs
     echo "Starting MKDocs"
-    mkdocs serve -a $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1):8000
+    mkdocs serve -a $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1):8000 $LRS
 }
 
 get_docs () {
