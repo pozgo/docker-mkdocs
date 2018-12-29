@@ -1,6 +1,7 @@
 ### MkDocs in a docker.
 
-[![Build Status](https://travis-ci.org/pozgo/docker-mkdocs.svg?branch=master)](https://travis-ci.org/pozgo/docker-mkdocs)  
+[![Build Status](https://travis-ci.org/pozgo/docker-mkdocs.svg?branch=master)](https://travis-ci.org/pozgo/docker-mkdocs) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
+ 
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)
 [![GitHub Forks](https://img.shields.io/github/forks/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)  
@@ -99,3 +100,6 @@ docker history --no-trunc=true polinux/mkdocs | tr -s ' ' | tail -n+2 | awk -F "
 ## Author
 
 Przemyslaw Ozgo
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_large)
