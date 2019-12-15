@@ -1,6 +1,6 @@
 ### MkDocs in a docker.
 
-[![Build Status](https://jenkins.ozgo.info/jenkins/view/GitHub%20-%20Docker/job/gh-pozgo-docker-mkdocs/badge/icon)](https://jenkins.ozgo.info/jenkins/view/GitHub%20-%20Docker/job/gh-pozgo-docker-mkdocs/)  
+[![Build Status](https://jenkins.ozgo.info/jenkins/buildStatus/icon?job=gh-pozgo-docker-mkdocs)](https://jenkins.ozgo.info/jenkins/view/GitHub%20-%20Docker/job/gh-pozgo-docker-mkdocs/)  
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
