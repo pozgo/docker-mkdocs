@@ -2,7 +2,7 @@
 set -eu
 #### "Magic starts Here" - H. Potter #####
 check_install_status () {
-    if [[ ! -e /workdir/mkdocs ]]; then 
+    if [[ ! -e /workdir/mkdocs ]]; then
         mkdir -p /workdir/mkdocs
     fi
     cd /workdir/mkdocs
@@ -23,7 +23,7 @@ start_mkdocs () {
 }
 
 get_docs () {
-    if [[ ! -e /workdir/mkdocs ]]; then 
+    if [[ ! -e /workdir/mkdocs ]]; then
         echo "Downloading documentation from Git Repository"
         git clone ${GIT_REPO} /workdir/mkdocs
     fi

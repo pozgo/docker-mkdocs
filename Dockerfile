@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV MKDOCS_VERSION="1.0.4" \
+ENV MKDOCS_VERSION=1.0.4 \
     GIT_REPO='false' \
     LIVE_RELOAD_SUPPORT='false'
 

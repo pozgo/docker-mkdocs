@@ -1,11 +1,12 @@
 ### MkDocs in a docker.
 
-[![Build Status](https://travis-ci.org/pozgo/docker-mkdocs.svg?branch=master)](https://travis-ci.org/pozgo/docker-mkdocs) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
- 
+[![Build Status](https://jenkins.ozgo.info/jenkins/view/GitHub%20-%20Docker/job/gh-pozgo-docker-mkdocs/badge/icon)](https://jenkins.ozgo.info/jenkins/view/GitHub%20-%20Docker/job/gh-pozgo-docker-mkdocs/)  
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
+
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
 [![GitHub Stars](https://img.shields.io/github/stars/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)
 [![GitHub Forks](https://img.shields.io/github/forks/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs)  
-[![](https://img.shields.io/github/release/pozgo/docker-mkdocs.svg)](http://microbadger.com/images/pozgo/docker-mkdocs) 
+[![](https://img.shields.io/github/release/pozgo/docker-mkdocs.svg)](http://microbadger.com/images/pozgo/docker-mkdocs)
 [![](https://images.microbadger.com/badges/image/polinux/mkdocs.svg)](http://microbadger.com/images/polinux/mkdocs)
 
 [![Docker build](http://dockeri.co/image/polinux/mkdocs)](https://hub.docker.com/r/polinux/mkdocs/)
