@@ -19,7 +19,7 @@ start_mkdocs () {
     fi
     cd /workdir/mkdocs
     echo "Starting MKDocs"
-    mkdocs serve -a $(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1):8000 $LRS
+    mkdocs serve -a 0.0.0.0:8000 $LRS
 }
 
 get_docs () {
