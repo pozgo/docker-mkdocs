@@ -11,10 +11,9 @@ RUN \
         git \
         openssh \
         python3 \
-        python3-dev && \
-    apk add --update \
+        python3-dev \
         py3-setuptools && \
-    /usr/bin/easy_install-3.7 pip && \
+    $(ls /usr/bin | grep easy_install) pip && \
     pip install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
