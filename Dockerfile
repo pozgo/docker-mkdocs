@@ -11,10 +11,9 @@ RUN \
         git \
         openssh \
         python3 \
-        python3-dev \
-        py3-setuptools
-
-RUN \
+        python3-dev && \
+    apk add --update \
+        py3-setuptools && \
     easy_install-3.7 pip && \
     pip install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
