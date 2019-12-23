@@ -11,11 +11,8 @@ RUN \
         git \
         openssh \
         python3 \
-        python3-dev \
-        py3-setuptools && \
-    $(ls /usr/bin | grep easy_install) pip && \
-    pip install --upgrade pip && \
-    pip install mkdocs==${MKDOCS_VERSION} && \
+        python3-dev && \
+    pip3 install mkdocs==${MKDOCS_VERSION} && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
 COPY container-files /
