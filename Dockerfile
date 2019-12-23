@@ -14,7 +14,7 @@ RUN \
         python3-dev && \
     apk add --update \
         py3-setuptools && \
-    easy_install-3.7 pip && \
+    /usr/bin/easy_install-3.7 pip && \
     pip install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
