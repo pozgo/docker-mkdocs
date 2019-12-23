@@ -19,7 +19,6 @@ RUN \
 
 COPY container-files /
 
-## Added to correct permissions when building locally on Windows Environment
 RUN chmod +x /bootstrap.sh
 
 WORKDIR /workdir
