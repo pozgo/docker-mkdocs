@@ -1,6 +1,12 @@
 #!/bin/bash
 set -eu
 #### "Magic starts Here" - H. Potter #####
+### Install themes
+if [[ ${INSTALL_THEMES} != 'false' ]]; then
+  echo "Installing additional theme/s: ${INSTALL_THEMES}"
+  pip install -q ${INSTALL_THEMES}
+fi
+
 check_install_status () {
   if [[ ! -e /workdir/mkdocs ]]; then
     echo "No documentation folder available. Creating new one."
