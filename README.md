@@ -27,6 +27,7 @@ Workdir is set to `/workdir`
 |:--|:--|
 |`GIT_REPO`|Remote git based repository - requires mounted keys *see examples below*|
 |`LIVE_RELOAD_SUPPORT`|Support for live reload feature. Default set to `false` - Use if auto reload needed|
+|`INSTALL_THEMES`|List of themes to install. Default set to `false`|
 
 ### Usage
 
@@ -36,13 +37,14 @@ docker run \
     --name mkdocs \
     polinux/mkdocs
 ```
-Mount Volume into working directory and make it available on port `80` on `localhost`.
+Mount Volume into working directory and make it available on port `80` on `localhost` and additional themes.
 
 ```bash
 docker run \
     -ti \
     --name mkdocs \
     -p 80:8000 \
+    -e INSTALL_THEMES='mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4' \
     -v /my_docs_dir:/workdir \
     polinux/mkdocs
 ```
