@@ -27,7 +27,7 @@ Workdir is set to `/workdir`
 |:--|:--|
 |`GIT_REPO`|Remote git based repository - requires mounted keys *see examples below*|
 |`LIVE_RELOAD_SUPPORT`|Support for live reload feature. Default set to `false` - Use if auto reload needed|
-|`INSTALL_THEMES`|List of themes to install. Default set to `false`|
+|`ADD_MODULES`|List of module to install. Default set to `false`|
 
 ### Usage
 

@@ -2,9 +2,9 @@
 set -eu
 #### "Magic starts Here" - H. Potter #####
 ### Install themes
-if [[ ${INSTALL_THEMES} != 'false' ]]; then
-  echo "Installing additional theme/s: ${INSTALL_THEMES}"
-  pip install -q ${INSTALL_THEMES}
+if [[ ${ADD_MODULES} != 'false' ]]; then
+  echo "Installing additional modules: ${ADD_MODULES}"
+  pip install -q ${ADD_MODULES}
 fi
 
 check_install_status () {
