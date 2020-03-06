@@ -1,7 +1,6 @@
 FROM alpine:latest
 
 ENV MKDOCS_VERSION=1.0.4 \
-    GIT_REPO='false' \
     DOCS_DIRECTORY='/mkdocs' \
     LIVE_RELOAD_SUPPORT='false' \
     ADD_MODULES='false' \
