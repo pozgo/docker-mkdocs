@@ -2,8 +2,12 @@ FROM alpine:latest
 
 ENV MKDOCS_VERSION=1.0.4 \
     GIT_REPO='false' \
+    DOCS_DIRECTORY='/mkdocs' \
     LIVE_RELOAD_SUPPORT='false' \
-    ADD_MODULES='false'
+    ADD_MODULES='false' \
+    FAST_MODE='false'
+
+ADD bootstrap/ /bootstrap
 
 RUN \
     apk add --update \
@@ -15,12 +19,9 @@ RUN \
         python3-dev && \
     pip3 install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
+    cd /bootstrap && pip install -e /bootstrap && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
 
-COPY container-files /
+WORKDIR ${DOCS_DIRECTORY}
 
-RUN chmod +x /bootstrap.sh
-
-WORKDIR /workdir
-
-ENTRYPOINT ["/bootstrap.sh"]
+CMD ["/usr/bin/bootstrap", "start"]
