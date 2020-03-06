@@ -22,7 +22,7 @@ def install_modules(modules):
     :return:
     """
     print(f'Installing python modules: {modules}')
-    Command(f'pip install -q {modules}')
+    Command(f'pip install -q {modules}').run()
     print(colored(f'Modules installed.', 'green'))
 
 
