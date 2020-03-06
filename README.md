@@ -23,11 +23,12 @@ Workdir is set to `/workdir`
 
 ### Environmental Variables
 
-|Variable|Notes|
-|:--|:--|
-|`GIT_REPO`|Remote git based repository - requires mounted keys *see examples below*|
-|`LIVE_RELOAD_SUPPORT`|Support for live reload feature. Default set to `false` - Use if auto reload needed|
-|`ADD_MODULES`|List of module to install. Default set to `false`|
+|Variable|Notes|Default|
+|:--|:--|---|
+|`LIVE_RELOAD_SUPPORT`|Support for live reload feature. |`false`|
+|`ADD_MODULES`|List of module to install.|`false`|
+|`FAST_MODE`|Enable fast mode. Rebuilds only changed/added files|`false`|
+|`DOCS_DIRECTORY`|Directory in which documentation is mounted inside of container|`/mkdocs`|
 
 ### Usage
 
@@ -44,24 +45,13 @@ docker run \
     -ti \
     --name mkdocs \
     -p 80:8000 \
-    -e INSTALL_THEMES='mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4' \
+    -e ADD_MODULES=mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4 \
+    -e LIVE_RELOAD_SUPPORT=true \
+    -e FAST_MODE=true \
+    -e DOCS_DIRECTORY=/workdir \
     -v /my_docs_dir:/workdir \
     polinux/mkdocs
 ```
-
-Fetch from git repository with ssh keys shared from host os
-
-```bash
-docker run \
-    -ti \
-    --name mkdocs \
-    -e GIT_REPO='git@github.com:username/my-repo.git' \
-    -e LIVE_RELOAD_SUPPORT='true' \
-    -v ~/.ssh:/root/.ssh:ro \
-    polinux/mkdocs
-```
-
-`-v ~/.ssh:/root/.ssh:ro` - Mouts ssh keys from host OS and sets `read-only` permissions
 
 Docker Compose file contains default settings for deploying in local directory and it's set to bind port `8000` to localhost.
 
