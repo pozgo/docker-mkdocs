@@ -19,7 +19,24 @@ MkDocs is a fast, simple and downright gorgeous static site generator that's gea
 
 Purpose of this image was to simplify the process of deploying MkDocs. This image is based on Alpine Linux to minimize the size of the image.
 
-Workdir is set to `/workdir`
+Workdir is set to `/mkdocs`
+
+**This container requires `workdir` to be set on runtime either using simple `docker run -w /my_workdir` or with `docker-compose.yaml`**
+It have to match mounted directory path from `DOCS_DIRECTORY` environmental variable
+
+```yaml
+version: '3'
+
+services:
+  mkdocs:
+    container_name: mkdocs
+    image: polinux/mkdocs:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ${PWD}/mkdocs:/mkdocs
+    working_dir: /mkdocs 
+```
 
 ### Environmental Variables
 
@@ -45,10 +62,10 @@ docker run \
     -ti \
     --name mkdocs \
     -p 80:8000 \
-    -e ADD_MODULES=mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4 \
-    -e LIVE_RELOAD_SUPPORT=true \
-    -e FAST_MODE=true \
-    -e DOCS_DIRECTORY=/workdir \
+    -e "ADD_MODULES=mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4" \
+    -e "LIVE_RELOAD_SUPPORT=true" \
+    -e "FAST_MODE=true" \
+    -e "DOCS_DIRECTORY=/workdir" \
     -v /my_docs_dir:/workdir \
     polinux/mkdocs
 ```

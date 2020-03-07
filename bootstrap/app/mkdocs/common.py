@@ -1,4 +1,3 @@
-from app.mkdocs.command import Command
 import os
 from termcolor import colored
 
@@ -11,18 +10,21 @@ def start():
     :return:
     """
     _check_previous_installation()
+    modules = os.environ['ADD_MODULES']
+    if modules != 'false':
+        _install_modules(modules)
     print('Starting MKDocs')
-    Command(f'mkdocs serve -a 0.0.0.0:8000 {_live_reload()} {_fast_mode()}').run()
+    os.system(f'mkdocs serve -a 0.0.0.0:8000 {_live_reload()} {_fast_mode()}')
 
 
-def install_modules(modules):
+def _install_modules(modules):
     """
-    Install Additionale Modules
-    :param modules: str - Lust of modules to install
+    Install Additional Modules
+    :param modules: str - List of modules to install
     :return:
     """
-    print(f'Installing python modules: {modules}')
-    Command(f'pip install -q {modules}').run()
+    print(colored(f'Installing python modules: {modules}', 'green'))
+    os.system(f'pip install -q {modules}')
     print(colored(f'Modules installed.', 'green'))
 
 
@@ -37,7 +39,7 @@ def _check_previous_installation():
         if not os.path.exists(docks_dir):
             os.mkdir(docks_dir)
         print(colored(f'Starting fresh installation', 'green'))
-        Command(f'mkdocs new {docks_dir}/').run()
+        os.system(f'mkdocs new {docks_dir}/')
     else:
         print(colored(f'Detected previous installation in ({docks_dir}).', 'green'))
 
