@@ -4,8 +4,14 @@ services:
   mkdocs:
     container_name: mkdocs
     image: polinux/mkdocs:latest
+    restart: always
     ports:
       - "8000:8000"
+    environment:
+      LIVE_RELOAD_SUPPORT: 'true'
+      ADD_MODULES: 'fontawesome-markdown mkdocs-git-revision-date-localized-plugin mkdocs-material'
+      FAST_MODE: 'true'
+      DOCS_DIRECTORY: '/mkdocs'
     volumes:
       - ${PWD}/mkdocs:/mkdocs
     working_dir: /mkdocs 
