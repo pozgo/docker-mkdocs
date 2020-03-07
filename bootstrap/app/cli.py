@@ -1,7 +1,5 @@
-from typing import Callable
-from app.mkdocs import common
 import click
-import os
+from app.mkdocs import common
 
 """CLI commands interface
 
@@ -24,7 +22,4 @@ def cli() -> None:
 
 @cli.command('start', help='Start Application')
 def start():
-    modules = os.environ['ADD_MODULES']
-    if modules != 'false':
-        common.install_modules(modules)
     common.start()
