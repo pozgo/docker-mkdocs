@@ -4,7 +4,8 @@ ENV MKDOCS_VERSION=1.0.4 \
     DOCS_DIRECTORY='/mkdocs' \
     LIVE_RELOAD_SUPPORT='false' \
     ADD_MODULES='false' \
-    FAST_MODE='false'
+    FAST_MODE='false' \
+    PYTHONUNBUFFERED=1
 
 ADD bootstrap/ /bootstrap
 
