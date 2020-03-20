@@ -1,3 +1,4 @@
 /.jenkins
 /.vscode
 .idea
+*.DS_STORE
