@@ -5,9 +5,13 @@ ENV MKDOCS_VERSION=1.1.0 \
     LIVE_RELOAD_SUPPORT='false' \
     ADD_MODULES='false' \
     FAST_MODE='false' \
-    PYTHONUNBUFFERED=1
+    PYTHONUNBUFFERED=1 \
+    GIT_REPO='false' \
+    GIT_BRANCH='master' \
+    AUTO_UPDATE='false' \
+    UPDATE_INTERVAL=15
 
-ADD bootstrap/ /bootstrap
+ADD container-files/ /
 
 RUN \
     apk add --update \
@@ -20,8 +24,7 @@ RUN \
     pip3 install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
     cd /bootstrap && pip install -e /bootstrap && \
+    apk del python3-dev && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
-
-WORKDIR ${DOCS_DIRECTORY}
 
 CMD ["/usr/bin/bootstrap", "start"]

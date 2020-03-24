@@ -23,3 +23,8 @@ def cli() -> None:
 @cli.command('start', help='Start Application')
 def start():
     common.start()
+
+
+@cli.command('update', help='Update documentation code from repository')
+def update():
+    common.update_repo()

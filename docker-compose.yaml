@@ -3,7 +3,7 @@ version: '3'
 services:
   mkdocs:
     container_name: mkdocs
-    image: polinux/mkdocs:latest
+    image: polinux/mkdocs:1.1.0
     restart: always
     ports:
       - "8000:8000"
@@ -12,6 +12,8 @@ services:
       ADD_MODULES: 'fontawesome-markdown mkdocs-git-revision-date-localized-plugin mkdocs-material'
       FAST_MODE: 'true'
       DOCS_DIRECTORY: '/mkdocs'
+      GIT_REPO: 'git@github.com:username/docs.git'
+      UPDATE_INTERVAL: 15
+      AUTO_UPDATE: 'true'
     volumes:
-      - ${PWD}/mkdocs:/mkdocs
-    working_dir: /mkdocs 
+      - $HOME/.ssh/id_rsa:/root/.ssh/id_rsa
