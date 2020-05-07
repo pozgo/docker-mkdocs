@@ -1,0 +1,20 @@
+name: Deploy MKDocs
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy image
+        run: |
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker build . --file Dockerfile --tag polinux/mkdocs:${RELEASE}
+          docker login  -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASS }}
+          docker push polinux/mkdocs:${RELEASE}
