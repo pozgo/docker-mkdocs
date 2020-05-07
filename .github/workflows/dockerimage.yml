@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Image MKDocs
 
 on:
   push:
@@ -14,5 +14,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag polinux/mkdocs:$(date +%s)
+      - name: Build Docker image
+        run: |
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker build . --file Dockerfile --tag polinux/mkdocs:${RELEASE}
+          docker images
+      - name: Test image
+        run: |
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:${RELEASE}
+          sleep 10
+          curl -sSLi http://127.0.0.1:8000  | grep '200 OK'
+      - name: Deploy image
+        if:  ${{github.branch == 'master'}}
+        run: |
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker login  -u ${{ secrets.DOCKER_HUB_USER }} -p ${{ secrets.DOCKER_HUB_PASS }}
+          docker push polinux/mkdocs:${RELEASE}
