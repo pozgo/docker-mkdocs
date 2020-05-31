@@ -2,14 +2,12 @@ name: Build & Test MKDocs
 
 on:
   push:
-    branches: [ issue/*, feature/* ]
+    branches: [issue/*, feature/*]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +22,7 @@ jobs:
           docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:${RELEASE}
           sleep 10
           curl -sSLi http://127.0.0.1:8000  | grep '200 OK'
+          # Test custom port
+          docker run -d --cap-add NET_ADMIN -p 8001:9000 --name custom -e "DEV_ADDR=0.0.0.0:9000" polinux/mkdocs:${RELEASE}
+          sleep 10
+          curl -sSLi http://127.0.0.1:8001  | grep '200 OK'
