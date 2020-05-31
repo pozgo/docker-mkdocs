@@ -1,6 +1,6 @@
 ### MkDocs in a docker.
 
-![Docker Image MKDocs](https://github.com/pozgo/docker-mkdocs/workflows/Docker%20Image%20MKDocs/badge.svg?branch=master)
+[![Docker Image MKDocs](https://github.com/pozgo/docker-mkdocs/workflows/Docker%20Image%20MKDocs/badge.svg?branch=master)](https://github.com/pozgo/docker-mkdocs/actions?query=workflow%3A%22Build+%26+Test+MKDocs%22)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
 
 [![GitHub Open Issues](https://img.shields.io/github/issues/pozgo/docker-mkdocs.svg)](https://github.com/pozgo/docker-mkdocs/issues)
@@ -25,7 +25,7 @@ version: '3'
 services:
   mkdocs:
     container_name: mkdocs
-    image: polinux/mkdocs:1.1.0
+    image: polinux/mkdocs:1.1.2
     restart: always
     ports:
       - "8000:8000"
@@ -53,6 +53,7 @@ services:
 |`GIT_BRANCH`|Self explanatory|`master`|
 |`AUTO_UPDATE`|Auto update for git repository support|`false`|
 |`UPDATE_INTERVAL`|Update interval in *minutes* - used only when `AUTO_UPDATE` set to `true`|every `15` minutes|
+|`DEV_ADDR`|Custom IP address and port to serve documentation locall|`0.0.0.0:8000`|
 
 ### Usage
 
@@ -68,7 +69,7 @@ Custom config with `git` repository as source of documentation
 docker run \
     -ti \
     --name mkdocs \
-    -p 80:8000 \
+    -p 80:9000 \
     -e "ADD_MODULES=mkdocs-bootstrap mkdocs-gitbook mkdocs-bootstrap4" \
     -e "LIVE_RELOAD_SUPPORT=true" \
     -e "FAST_MODE=true" \
@@ -77,6 +78,7 @@ docker run \
     -e "GIT_BRANCH=develop" \
     -e "AUTO_UPDATE=true" \
     -e "UPDATE_INTERVAL=1" \
+    -e "DEV_ADDR=0.0.0.0:9000" \
     -v ${HOME}/.ssh/id_rsa:/root/.ssh/id_rsa \
     polinux/mkdocs
 ```
