@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='bootstrap',
-    version='0.0.2',
+    version='1.0.0',
     py_modules=['bootstrap'],
     include_package_data=True,
     install_requires=[

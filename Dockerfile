@@ -15,14 +15,15 @@ ADD container-files/ /
 
 RUN \
     apk add --update \
-        ca-certificates \
-        bash \
-        git \
-        openssh \
-        python3 \
-        python3-dev \
-        build-base && \
-    pip3 install --upgrade pip && \
+    ca-certificates \
+    bash \
+    git \
+    openssh \
+    python3 \
+    python3-dev \
+    py3-pip \
+    build-base && \
+    pip install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
     cd /bootstrap && pip install -e /bootstrap && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \

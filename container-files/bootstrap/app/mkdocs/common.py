@@ -24,7 +24,11 @@ def start():
     _check_previous_installation()
     print('Starting MKDocs')
     os.chdir(docks_dir)
-    os.system(f'mkdocs serve -a 0.0.0.0:8000 {_live_reload()} {_fast_mode()}')
+    if "DEV_ADDR" in os.environ:
+        _dev_addr = os.environ['DEV_ADDR']
+    else:
+        _dev_addr = '0.0.0.0:8000'
+    os.system(f'mkdocs serve -a {_dev_addr} {_live_reload()} {_fast_mode()}')
 
 
 def _install_modules(modules):
@@ -45,13 +49,15 @@ def _check_previous_installation():
     :return:
     """
     if not os.path.exists(docks_dir + '/mkdocs.yml'):
-        print(colored(f'No documentation found in ({docks_dir}). Creating new one.', 'yellow'))
+        print(colored(
+            f'No documentation found in ({docks_dir}). Creating new one.', 'yellow'))
         if not os.path.exists(docks_dir):
             os.mkdir(docks_dir)
         print(colored(f'Starting fresh installation', 'green'))
         os.system(f'mkdocs new {docks_dir}/')
     else:
-        print(colored(f'Detected previous installation in ({docks_dir}).', 'green'))
+        print(
+            colored(f'Detected previous installation in ({docks_dir}).', 'green'))
 
 
 def _live_reload():
@@ -111,7 +117,8 @@ def _clone_repo(repo):
 
     if auto_update == 'true':
         print(colored(f'AUTO_UPDATE - [ ENABLED ]', 'green'))
-        print(colored(f'UPDATE_INTERVAL set to every {interval} minute/s', 'green'))
+        print(
+            colored(f'UPDATE_INTERVAL set to every {interval} minute/s', 'green'))
         _set_auto_update(interval)
 
 
