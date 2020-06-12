@@ -1,5 +1,6 @@
 ### MkDocs in a docker.
 
+[![Discord](https://img.shields.io/discord/720919856815276063)](https://discord.com/channels/720919856815276063/720920716249137233)  
 [![Docker Image MKDocs](https://github.com/pozgo/docker-mkdocs/workflows/Docker%20Image%20MKDocs/badge.svg?branch=master)](https://github.com/pozgo/docker-mkdocs/actions?query=workflow%3A%22Build+%26+Test+MKDocs%22)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_shield)
 
@@ -18,6 +19,17 @@ Felling like supporting me in my projects use donate button. Thank You!
 MkDocs is a fast, simple and downright gorgeous static site generator that's geared towards building project documentation. Documentation source files are written in Markdown, and configured with a single YAML configuration file.
 
 Purpose of this image was to simplify the process of deploying MkDocs. This image is based on Alpine Linux to minimize the size of the image.
+
+### ARM based image
+To build ARM based image Docker Desktop for macOS can be used. 
+
+Example build:
+
+```bash
+docker build . --file Dockerfile-arm64v8 polinux/mkdocs:arm64v8-1.1.2
+```
+
+### Docker compose example
 
 ```yaml
 version: '3'
