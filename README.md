@@ -155,6 +155,3 @@ docker history --no-trunc=true polinux/mkdocs | tr -s ' ' | tail -n+2 | awk -F "
 ## Author
 
 Przemyslaw Ozgo
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpozgo%2Fdocker-mkdocs?ref=badge_large)

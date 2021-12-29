@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV MKDOCS_VERSION=1.2.2 \
+ENV MKDOCS_VERSION=1.2.3 \
     DOCS_DIRECTORY='/mkdocs' \
     LIVE_RELOAD_SUPPORT='false' \
     ADD_MODULES='false' \
