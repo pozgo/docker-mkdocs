@@ -28,15 +28,15 @@ jobs:
           curl -sSLi http://127.0.0.1:8001  | grep '200 OK'
       - name: Build Docker image arm64
         run: |
-          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
-          docker buildx build . --file Dockerfile --platform linux/arm64 --tag polinux/mkdocs:${RELEASE}-arm64
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile-arm64v8 | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker buildx build . --file Dockerfile-arm64v8 --platform linux/arm64 --tag polinux/mkdocs:${RELEASE}-arm64
       - name: Test image arm64
         run: |
-          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
-          docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs polinux/mkdocs:${RELEASE}-arm64
+          export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile-arm64v8 | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
+          docker run -d --cap-add NET_ADMIN -p 8000:8000 --name mkdocs-arm polinux/mkdocs:${RELEASE}-arm64
           sleep 10
           curl -sSLi http://127.0.0.1:8000  | grep '200 OK'
           # Test custom port
-          docker run -d --cap-add NET_ADMIN -p 8001:9000 --name custom -e "DEV_ADDR=0.0.0.0:9000" polinux/mkdocs:${RELEASE}-arm64
+          docker run -d --cap-add NET_ADMIN -p 8001:9000 --name custom-arm64 -e "DEV_ADDR=0.0.0.0:9000" polinux/mkdocs:${RELEASE}-arm64
           sleep 10
           curl -sSLi http://127.0.0.1:8001  | grep '200 OK'
