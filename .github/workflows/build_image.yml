@@ -29,7 +29,7 @@ jobs:
       - name: Build Docker image arm64
         run: |
           export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
-          docker buildx build . --file Dockerfile --platform linux/arm64--tag polinux/mkdocs:${RELEASE}-arm64
+          docker buildx build . --file Dockerfile --platform linux/arm64 --tag polinux/mkdocs:${RELEASE}-arm64
       - name: Test image arm64
         run: |
           export RELEASE=$(grep "MKDOCS_VERSION=" Dockerfile | sed 's|^.*=||g' |awk '{print $1}' | sed 's|"||g')
