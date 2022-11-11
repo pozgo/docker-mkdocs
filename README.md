@@ -26,7 +26,7 @@ To build ARM based image Docker Desktop for macOS can be used.
 Example build:
 
 ```bash
-docker build . --file Dockerfile-arm64v8 polinux/mkdocs:arm64v8-1.1.2
+docker build --file Dockerfile-arm64v8 -t polinux/mkdocs:arm64v8-1.2.2 .
 ```
 
 ### Docker compose example
@@ -37,7 +37,7 @@ version: '3'
 services:
   mkdocs:
     container_name: mkdocs
-    image: polinux/mkdocs:1.1.2
+    image: polinux/mkdocs:1.2.2
     restart: always
     ports:
       - "8000:8000"
