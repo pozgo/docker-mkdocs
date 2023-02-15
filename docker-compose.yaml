@@ -3,7 +3,7 @@ version: '3'
 services:
   mkdocs:
     container_name: mkdocs
-    image: polinux/mkdocs:1.1.0
+    image: polinux/mkdocs:1.4.2
     restart: always
     ports:
       - "8000:8000"
