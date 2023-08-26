@@ -1,6 +1,6 @@
 FROM arm64v8/alpine
 
-ENV MKDOCS_VERSION=1.4.2 \
+ENV MKDOCS_VERSION=1.5.2 \
   DOCS_DIRECTORY='/mkdocs' \
   LIVE_RELOAD_SUPPORT='false' \
   ADD_MODULES='false' \
