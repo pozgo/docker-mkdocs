@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.18.3
 
 ENV MKDOCS_VERSION=1.5.2 \
     DOCS_DIRECTORY='/mkdocs' \
@@ -29,4 +29,4 @@ RUN \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \
     chmod 600 /root/.ssh/config
 
-CMD ["/usr/bin/bootstrap", "start"]
+CMD ["/usr/bin/python3", "/bootstrap/main.py", "start"]
