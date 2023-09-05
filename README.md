@@ -21,12 +21,11 @@ MkDocs is a fast, simple and downright gorgeous static site generator that's gea
 Purpose of this image was to simplify the process of deploying MkDocs. This image is based on Alpine Linux to minimize the size of the image.
 
 ### ARM based image
-To build ARM based image Docker Desktop for macOS can be used. 
 
 Example build:
 
 ```bash
-docker build --file Dockerfile-arm64v8 -t polinux/mkdocs:arm64v8-1.2.2 .
+docker buildx build --platform linux/arm64 --file Dockerfile-arm64v8 -t polinux/mkdocs:arm64v8-1.2.2 .
 ```
 
 ### Docker compose example
