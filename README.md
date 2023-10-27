@@ -12,7 +12,7 @@
 
 [![Docker build](http://dockeri.co/image/polinux/mkdocs)](https://hub.docker.com/r/polinux/mkdocs/)
 
-Felling like supporting me in my projects use donate button. Thank You!  
+If you feel like supporting me in my projects then use the donate button. Thank You!  
 [![](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/POzgo)
 
 [Docker Image](https://registry.hub.docker.com/u/polinux/mkdocs/) with [MkDocs](http://www.mkdocs.org/). It's using tiny image provided by Alpine.  
