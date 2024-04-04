@@ -25,7 +25,7 @@ Purpose of this image was to simplify the process of deploying MkDocs. This imag
 Example build:
 
 ```bash
-docker buildx build --platform linux/arm64 --file Dockerfile-arm64v8 -t polinux/mkdocs:arm64v8-1.2.2 .
+docker buildx build --platform linux/arm64 --file Dockerfile-arm64v8 -t polinux/mkdocs:arm64v8-1.5.3 .
 ```
 
 ### Docker compose example
@@ -36,7 +36,7 @@ version: '3'
 services:
   mkdocs:
     container_name: mkdocs
-    image: polinux/mkdocs:1.2.2
+    image: polinux/mkdocs:1.5.3
     restart: always
     ports:
       - "8000:8000"
