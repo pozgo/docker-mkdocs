@@ -26,6 +26,7 @@ RUN \
     pip install --upgrade pip && \
     pip install mkdocs==${MKDOCS_VERSION} && \
     cd /bootstrap && pip install -e /bootstrap && \
+    cp -r /bootstrap/app/ /usr/bin/ && \
     rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/* && \
     chmod 600 /root/.ssh/config
 
